@@ -1,50 +1,62 @@
-# Conversor de moedas
+## ğŸ“” Sobre
 
-Você deverá implementar uma API Rest que seja capaz de realizar a conversão entre duas moedas
-utilizando taxas de conversões atualizadas de um serviço externo.
+AplicaÃ§Ã£o desenvolvida para realizar a conversÃ£o entre duas moedas, utilizando taxas de conversÃµes atualizadas de um serviÃ§o externo, no qual foi consumido a API [api.exchangeratesapi.io].
 
-Para realização da conversão é necessário o ID do usuário que deseja realizar a conversão.
+A aplicaÃ§Ã£o foi divida em mÃ³dulos, que no caso existe somente um, transactions, onde estarÃ£o todos os arquivos pertinentes a este domÃ­nio.
 
-A API deverá registrar cada transação de conversão com todas as informações relacionadas e também
-disponibilizar um endpoint para consulta das transações realizadas por um usuário.
+---
 
-O projeto poderá ser feito na linguagem de programação de sua preferência.
+## :rocket: Tecnologias Utilizadas
 
-1. Deve ser possível realizar a conversão entre 4 moedas no mínimo (BRL, USD, EUR, JPY);
-1. As taxas de conversão devem ser obtidas de [https://api.exchangeratesapi.io/latest?base=USD];
-1. As transações de conversão devem ser persistidas no banco de dados (embedded) contendo:
-    * ID do usuário;
-    * Moeda origem;
-    * Valor origem;
-    * Moeda destino;
-    * Taxa de conversão utilizada;
-    * Data/Hora UTC;
-1. Uma transação com sucesso deve retornar:
-    * ID da transação
-    * ID do usuário;
-    * Moeda origem;
-    * Valor origem;
-    * Moeda destino;
-    * Valor destino;
-    * Taxa de conversão utilizada;
-    * Data/Hora UTC;
-1. Uma transação com falha conhecida deve retornar um erro HTTP 400 com a descrição da falha;
-1. Deverá existir um endpoint para listagem de todas as transações realizadas por usuário;
-1. Deve haver uma cobertura satisfatória de testes;
-1. Deve-se adicionar a esse arquivo explicações sobre como rodar a aplicação, e uma apresentação sobre o
-projeto: propósito, features, motivação das principais escolhas de tecnologias, e separação das camadas;
-1. Todo o código deve ser em inglês;
-1. Disponibilizar o código apenas nesse repositório, sem nenhuma cópia pública, para evitar plágio;
+- :floppy_disk: Bancos de dados:
 
-## Itens desejáveis
-* Logs
-* Tratamento de exceções
-* Documentação
-* Coesão de commits
-* Mensagens de commits claras
-* Configuração de lint
-* Testes unitários
-* Testes de integração
-* Documentação dos endpoints
-* Estar rodando e disponível (Ex: Heroku, ou similar)
-* CI/CD
+  - SQLite - Bancos de dados embedded
+
+- ğŸŒ Backend:
+
+  - NodeJS;
+  - Express - Framework para NodeJS para microserviÃ§os
+  - TypeScript - Superset de JS para facilitar a codificaÃ§Ã£o da aplicaÃ§Ã£o
+  - Knex - Querybuilder para NodeJS para conectar ao SQLite
+  - Celabrate - ValidaÃ§Ã£o dos dados nas rotas
+  - Axios - Cliente HTTP para fazer requisiÃ§Ãµes
+
+- ğŸ“” PadronizaÃ§Ã£o de CÃ³digo:
+
+  - ESLint
+  - Prettier
+  - EditorConfig
+
+  ***
+
+## ğŸ‘¨â€ğŸ’»ï¸ Como Usar :
+
+### Clonando e Acessando Projeto
+
+```shell
+$ git clone
+$ cd
+```
+
+### Iniciando o Servidor Backend (localhost:3333)
+
+```shell
+$ cd backend
+$ yarn install
+
+## CriaÃ§Ã£o da Tabela
+$ yarn knex:migrate
+
+## ExecuÃ§Ã£o do backend
+$ yarn dev:server
+```
+
+---
+
+## :hammer: Features Implementadas
+
+### Backend:
+
+- [x] RealizaÃ§Ã£o da ConversÃ£o de Moedas
+- [x] Salvo no banco de dados todas as transaÃ§Ãµes realizadas
+- [x] Consulta de todas transaÃ§Ãµes realizadas pelo usuÃ¡rio
